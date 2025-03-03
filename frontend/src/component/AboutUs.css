@@ -1,0 +1,32 @@
+.nav
+{
+   height: 80px;
+   width: 100%;
+   background-color: teal;
+   display: flex;
+   flex-direction: row;
+   justify-content: end;
+   align-items: center;
+   gap:50px;
+   font-size: 20px;
+   color: white;
+}
+.nav a {
+   color: white; 
+   text-decoration: none;
+   font-size: 25px;
+ }
+ .para p{
+   display: flex;
+   flex-direction: row;
+   border:2px solid black;
+   width: 90%;
+   height: 100px;
+margin-left: 50px;
+padding-top: 40px;
+padding-left: 40px;
+padding-right: 40px;
+font-weight: bold;
+background-color:palevioletred;
+color: white;
+}

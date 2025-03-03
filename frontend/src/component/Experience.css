@@ -1,0 +1,30 @@
+.opt button{
+ height: 50px;
+ width: 100px;
+ background-color: whitesmoke;
+ color:black;
+ border-radius:20px;
+ cursor:pointer;
+ border: none;
+ gap: 30px;
+}
+.opt button:hover{
+   background-color:blue;
+   color: white;
+}
+.vol
+{
+   margin-left: 30px;
+}
+.tutor
+{
+   margin-left: 30px;
+}
+.skl{
+   font-weight: bold;
+}
+.skl:hover{
+   text-decoration: underline;
+   color: blue;
+   font-weight: bold;
+}

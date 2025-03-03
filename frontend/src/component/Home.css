@@ -1,0 +1,31 @@
+.nav
+{
+   height: 80px;
+   width: 100%;
+   background-color: teal;
+   display: flex;
+   flex-direction: row;
+   justify-content: end;
+   align-items: center;
+   gap:50px;
+   font-size: 20px;
+   color: white;
+}
+.cnt {
+   display: flex;
+   flex-direction: row;
+   gap: 20px;
+}
+.cnt h1{
+   font-weight: bold;
+   font-size: 25px;
+   text-wrap: wrap;
+   margin-top: 250px;
+   margin-left: 100px;
+   margin-right: 100px;
+}
+.nav a {
+   color: white; 
+   text-decoration: none;
+   font-size: 25px;
+ }

@@ -1,0 +1,109 @@
+
+.preview {
+  font-family: Arial, sans-serif;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.top {
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  gap: 20px; 
+}
+
+
+.left {
+  flex: 2;
+  background-color: white;
+  padding:20px;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.right {
+  flex: 0.3; 
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contacts h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.contacts p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.education h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.education p,
+.experience p,
+.skills p,
+.achievements p
+ {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+  text-align: justify;
+}
+
+hr {
+  border: 0;
+  height: 4px;
+  background: #ddd;
+  margin: 10px 0;
+}
+.education{
+  text-align: left;
+}
+.experience{
+  text-align: left;
+}
+.skills{
+  text-align: left;
+}
+.achievements{
+  text-align: left;
+}
+
+.top {
+display: flex; 
+align-items: center; 
+gap: 20px; 
+}
+
+.contacts h1 {
+margin-left: 0;
+margin-top: 40px; 
+}
+.deg h2{
+margin-left: 0%;
+}
+.name-degree {
+display: flex;
+flex-direction: column; 
+gap: 0; 
+}
+
+
+

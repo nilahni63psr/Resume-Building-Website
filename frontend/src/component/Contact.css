@@ -1,0 +1,38 @@
+.nav
+{
+   height: 80px;
+   width: 100%;
+   background-color: teal;
+   display: flex;
+   flex-direction: row;
+   justify-content: end;
+   align-items: center;
+   gap:50px;
+   font-size: 20px;
+   color: white;
+}
+.nav a {
+   color: white; 
+   text-decoration: none;
+   font-size: 25px;
+ }
+ .con form{
+   background-color: palevioletred;
+   height:400px;
+width: 500px;
+border-radius: 10px;
+margin-top: 150px;
+margin-left: 200px;
+padding-top: 50px;
+ }
+ .con input {
+   height: 35px;
+   width: 300px;
+   border-radius: 5px;
+   border:none;
+ }
+ .con {
+   display: flex;
+   flex-direction: row;
+ }
+ 

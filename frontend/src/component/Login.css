@@ -1,0 +1,30 @@
+.lg form{
+   background-color:palevioletred;
+ height:300px;
+ width: 500px;
+ border-radius: 10px;
+ margin-top: 150px;
+ margin-left: 50px;
+ padding-top: 50px;
+ }
+ .lg input{
+    height: 35px;
+    width: 300px;
+    border-radius: 5px;
+    border:none;
+ }
+ .lg
+ {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+ }
+ .login h1{
+   height: 80px;
+   width: 100%;
+   background-color: teal;
+   place-content: center;
+   border-radius: 10px;
+   color: white;
+   margin-top: 0px;
+}
