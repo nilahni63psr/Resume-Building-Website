@@ -57,8 +57,6 @@ export default function Education() {
             value={formData.sgradyear}
             onChange={handleChange}
             placeholder="Enter graduation year"
-            min="1900"
-            max="2099"
             style={{height:"35px",width:"310px"}}
             required
           /><br></br><br></br>
@@ -94,8 +92,6 @@ export default function Education() {
             value={formData.gradyear}
             onChange={handleChange}
             placeholder="Enter graduation year"
-            min="1900"
-            max="2099"
             style={{height:"35px",width:"310px"}}
             required
           /><br></br><br></br>
