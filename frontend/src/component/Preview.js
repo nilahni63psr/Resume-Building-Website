@@ -1,71 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Preview.css';
-import html2canvas from 'html2canvas';
 import { Navigate,useNavigate } from 'react-router-dom';
-import jsPDF from 'jspdf';
 
 export default function Preview() {
   const navigate=useNavigate()
-  const [contact, setContact] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [experience, setExperience] = useState([]);
-  const [skills, setSkills] = useState([]);
-  const [achievements,setAchievements]=useState([]);
+  const [contact, setContact] = useState(null);
+  const [education, setEducation] = useState(null);
+  const [experience, setExperience] = useState(null);
+  const [skills, setSkills] = useState(null);
+  const [achievements,setAchievements]=useState(null);
   useEffect(() => {
     axios.get(`http://localhost:3001/resume/contact`)
     
       .then((res) => setContact(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [contact]);
 
   useEffect(() => {
     axios.get(`http://localhost:3001/resume/education`)
       .then((res) => setEducation(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [education]);
 
   useEffect(() => {
     axios.get(`http://localhost:3001/resume/experience`)
       .then((res) => setExperience(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [experience]);
 
   useEffect(() => {
     axios.get(`http://localhost:3001/resume/skills`)
       .then((res) => setSkills(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [skills]);
   useEffect(() => {
     axios.get(`http://localhost:3001/resume/achievements`)
       .then((res) => setAchievements(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [achievements]);
   const downloadPDF = () => {
-    const input = document.getElementById('resume-content'); 
-    html2canvas(input, { scale: 2 })
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('')
-        const pdf = new jsPDF('p', 'mm', 'a4'); 
-        const imgWidth = 190; 
-        const imgHeight = (canvas.height * imgWidth) / canvas.width; 
-        let position = 0;        
-        const marginLeft = 10;
-        const marginTop = 10;
-        while (position < imgHeight) {
-          pdf.addImage(imgData, 'JPG', marginLeft, marginTop - position, imgWidth, imgHeight);
-          position += 297; 
-
-          if (position < imgHeight) {
-            pdf.addPage(); 
-          }
-        }
-
-        pdf.save('resume.pdf'); 
-      })
-      .catch((err) => {
-        console.error('Error generating PDF:', err);
-      });
+    setTimeout(() => {
+      navigate("/");
+    }, 3000); 
   };
 const handleBack=()=>{
   setTimeout(() => {
@@ -77,69 +54,69 @@ const handleBack=()=>{
       <div id="resume-content"> 
         <div className="top">
   
-        {contact.length > 0 && contact[0].profile && (
-  <img src={contact[0].profile}
-    style={{ width: '100px', height: '100px',marginLeft:'220px',borderRadius:'50%'}} 
-  />
-)}
-<div className="name-degree">
-          {contact.length > 0 && (
-            <div className="contacts">
-              <h1>{contact[0].fname} {contact[0].lname}</h1>
-            </div>
+        {contact && contact.profile && (
+            <img src={contact.profile}
+              style={{ width: '100px', height: '100px', marginLeft: '220px', borderRadius: '50%' }}
+            />
           )}
-          {education.length > 0 && (
-            <div className="deg">
-              <h2>{education[0].degree}</h2>
-            </div>
-          )}
+          <div className="name-degree">
+            {contact && (
+              <div className="contacts">
+                <h1>{contact.fname} {contact.lname}</h1>
+              </div>
+            )}
+            {education && (
+              <div className="deg">
+                <h2>{education.degree}</h2>
+              </div>
+            )}
           </div>
-          </div>
+        </div>
         <div className="center">
           <div className="left">
-            {education.length > 0 && (
+            {education && (
               <div className="education">
-                <h2>Education</h2><br></br>
-                <p>School Name: {education[0].sname}</p>
-                <p>Graduation Year: {education[0].sgradyear}</p>
-                <p>Degree: {education[0].degree}</p>
-                <p>Percentage: {education[0].percentage}</p>
-                <p>Graduation Year: {education[0].gradyear}</p><br></br>
+                <h2>Education</h2><br />
+                <p>School Name: {education.sname}</p>
+                <p>Graduation Year: {education.sgradyear}</p>
+                <p>Degree: {education.degree}</p>
+                <p>Percentage: {education.percentage}</p>
+                <p>Graduation Year: {education.gradyear}</p><br />
                 <hr />
               </div>
             )}
-            {experience.length > 0 && (
+            {experience && (
               <div className="experience">
                 <h2>Experience</h2>
-                <p>{experience[0].experience}</p><br></br>
+                <p>{experience.experience}</p><br />
                 <hr />
               </div>
             )}
-            {skills.length > 0 && (
+            {skills && (
               <div className="skills">
                 <h2>Skills</h2>
-                <p>{skills[0].skills}</p><br></br>
+                <p>{skills.skills}</p><br />
                 <hr />
               </div>
             )}
-              {achievements.length > 0 && (
+            {achievements && (
               <div className="achievements">
                 <h2>Achievements</h2>
-                <p>{achievements[0].achievements}</p><br></br>
+                <p>{achievements.achievements}</p><br />
                 <hr />
               </div>
             )}
           </div>
           <div className="right">
-            {contact.length > 0 && (
+            {contact && (
               <div className="contacts">
-                <p><h3>Profession:</h3>{contact[0].prof}</p>
-                <p><h3>City:</h3>{contact[0].city}</p>
-                <p><h3>Country:</h3>{contact[0].country}</p>
-                <p><h3>Phone:</h3>{contact[0].phone}</p>
-                <p><h3>Pin:</h3>{contact[0].pin}</p>
-                <p><h3>Email:</h3>{contact[0].email}</p>
-                <p><h3>Linked In:</h3>{contact[0].linkedin}</p>
+                <p><h3>Profession:</h3>{contact.prof}</p>
+                <p><h3>City:</h3>{contact.city}</p>
+                <p><h3>Country:</h3>{contact.country}</p>
+                <p><h3>Phone:</h3>{contact.phone}</p>
+                <p><h3>Pin:</h3>{contact.pin}</p>
+                <p><h3>Email:</h3>{contact.email}</p>
+                <p><h3>Linked In:</h3>{contact.linkedin}</p>
               </div>
             )}
           </div>
@@ -150,7 +127,7 @@ const handleBack=()=>{
         style={{
           width: '100px',
           height: '50px',
-          color:"white",
+          color: "white",
           backgroundColor: 'seagreen',
           border: 'none',
           borderRadius: '5px',
@@ -163,9 +140,9 @@ const handleBack=()=>{
       <button
         style={{
           width: '100px',
-          marginLeft:"20px",
+          marginLeft: "20px",
           height: '50px',
-          color:"white",
+          color: "white",
           backgroundColor: 'seagreen',
           border: 'none',
           borderRadius: '5px',
